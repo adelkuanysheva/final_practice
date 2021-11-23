@@ -10,11 +10,11 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
-app.post("/createcard", cardController.create);
-
 app.get("/", (req, res) => {
   res.render("createcard");
 });
+
+app.post("/createcard", cardController.create);
 
 app.get("/people/:id", (req, res) => {
   res.render("people");

@@ -11,9 +11,14 @@ let cardModel = {
           books
         }
 
-        fs.writeFile("./database.json", JSON.stringify(data), err => {
-            if (err) console.log("Error writing file:", err);
-          });
+        const jsonString = JSON.stringify(data)
+        fs.writeFile('./database.json', jsonString, err => {
+            if (err) {
+                console.log('Error writing file', err)
+            } else {
+                console.log('Successfully wrote file')
+            }
+        })
     }
 }
 
