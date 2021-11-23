@@ -1,6 +1,7 @@
 const express = require("express");
 const PORT = process.env.PORT || 8007;
 const app = express();
+const cardController = require("./controller/cardController");
 
 // Don't worry about these 4 lines below
 app.set("view engine", "ejs");
@@ -8,9 +9,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+
+app.post("/createcard", cardController.create);
+
 app.get("/", (req, res) => {
-  res.render("homepage");
+  res.render("createcard");
 });
+
 app.get("/people/:id", (req, res) => {
   res.render("people");
 });
